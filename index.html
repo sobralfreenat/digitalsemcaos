@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Sem Caos - MAE</title>
+    <title>Digital Sem Caos - 1.2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,7 +54,7 @@
         }
         iframe {
             width: 100%;
-            height: 900px; /* Altura do iframe ajustada para 900px */
+            height: 1300px; /* Altura do iframe ajustada para 900px */
             border: 1px solid #ccc;
         }
         .accordion {
@@ -190,7 +190,7 @@
                 const newWidth = event.clientX - columns.offsetLeft;
                 const totalWidth = columns.offsetWidth;
                 
-                const centerWidth = Math.max(newWidth - 15, 800); // Largura mínima de 300px para a coluna central
+                const centerWidth = Math.max(newWidth - 15, 1600); // Largura mínima de 300px para a coluna central
                 const rightWidth = totalWidth - centerWidth - 5; // Ajusta a largura da coluna direita
 
                 centerColumn.style.flex = `0 0 ${centerWidth}px`;
