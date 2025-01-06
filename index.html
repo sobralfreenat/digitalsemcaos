@@ -37,14 +37,14 @@
             overflow: hidden; /* Oculta o conteúdo que excede */
         }
         .left {
-            flex: 0 0 15%; /* 15% da largura */
+            flex: 0 0 13%; /* 15% da largura */
         }
         .center {
             flex: 1; /* Ajustável */
-            min-width: 300px; /* Largura mínima */
+            min-width: 200px; /* Largura mínima */
         }
         .right {
-            flex: 0 0 30%; /* 30% da largura */
+            flex: 0 0 18%; /* 30% da largura */
         }
         .divider {
             cursor: ew-resize; /* Cursor de redimensionamento */
@@ -190,7 +190,7 @@
                 const newWidth = event.clientX - columns.offsetLeft;
                 const totalWidth = columns.offsetWidth;
                 
-                const centerWidth = Math.max(newWidth - 15, 300); // Largura mínima de 300px para a coluna central
+                const centerWidth = Math.max(newWidth - 15, 800); // Largura mínima de 300px para a coluna central
                 const rightWidth = totalWidth - centerWidth - 5; // Ajusta a largura da coluna direita
 
                 centerColumn.style.flex = `0 0 ${centerWidth}px`;
