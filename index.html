@@ -29,32 +29,32 @@
         }
         .columns {
             display: flex;
+            flex-wrap: wrap; /* Permite que as colunas se empilhem */
             margin-top: 20px;
-            height: 1300px; /* Altura total das colunas */
         }
         .column {
             padding: 10px;
-            overflow: hidden; /* Oculta o conteúdo que excede */
+            flex: 1 1 300px; /* Ajustável com largura mínima de 300px */
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
         }
         .left {
-            flex: 0 0 13%; /* 15% da largura */
+            flex: 0 0 13%; /* Largura da coluna esquerda */
         }
         .center {
             flex: 1; /* Ajustável */
-            min-width: 200px; /* Largura mínima */
         }
         .right {
-            flex: 0 0 18%; /* 30% da largura */
+            flex: 0 0 18%; /* Largura da coluna direita */
         }
         .divider {
-            cursor: ew-resize; /* Cursor de redimensionamento */
-            width: 5px; /* Largura da divisória */
-            background-color: #ccc; /* Cor da divisória */
-            height: 900px; /* Altura total */
+            cursor: ew-resize;
+            width: 5px;
+            background-color: #ccc;
+            height: auto; /* Altura automática */
         }
         iframe {
             width: 100%;
-            height: 1300px; /* Altura do iframe ajustada para 900px */
+            height: 400px; /* Altura reduzida para melhor responsividade */
             border: 1px solid #ccc;
         }
         .accordion {
@@ -64,7 +64,7 @@
             margin-bottom: 10px;
         }
         .accordion-header {
-            background: #2e5458; /* Cor dos botões */
+            background: #2e5458;
             color: white;
             padding: 10px;
             cursor: pointer;
@@ -74,21 +74,30 @@
             display: none;
             background: white;
             padding: 10px;
-            border: 1px solid #2e5458; /* Cor da borda do conteúdo do acordeão */
+            border: 1px solid #2e5458;
             border-radius: 5px;
+        }
+
+        /* Media Queries para dispositivos móveis */
+        @media (max-width: 768px) {
+            .columns {
+                flex-direction: column; /* Colunas empilhadas em telas menores */
+            }
+            .left, .right {
+                flex: 1 1 auto; /* Colunas laterais ocupam toda a largura */
+                min-width: 0; /* Remove a largura mínima */
+            }
+            .divider {
+                display: none; /* Esconde a divisória em telas menores */
+            }
         }
     </style>
 </head>
 <body>
 
-   <!-- <h1>DigitalSemCaos.Com</h1>
-    <nav>
-        <a href="#" onclick="toggleAccordion('accordion')">Cards Conceituais</a>
-    </nav> -->
-
     <div class="content" id="content">
-        <h1>DigitalSemCaos.Com </h1> Aceleração de Aprendizagem e Ensino</h2>
-        <!-- <p>Selecione uma seção no menu acima para começar.</p> -->
+        <h1>DigitalSemCaos.Com</h1>
+        <p>Aceleração de Aprendizagem e Ensino</p>
     </div>
 
     <div class="columns">
@@ -102,13 +111,11 @@
             <iframe src="https://freenat-doc.systeme.io/acesso-gratuito--avaliacao-proposta" title="Exemplo 2"></iframe>
         </div>
 
-        <div class="divider" onmousedown="startResize(event)"></div> <!-- Divisória -->
+        <div class="divider" onmousedown="startResize(event)"></div>
         
         <div class="column right">
             <h3>Coluna Direita</h3>
             <iframe src="https://freenat-doc.systeme.io/decisao-mudanca" title="Exemplo 3"></iframe>
-
-            <!-- Acordeão Principal -->
             <div class="accordion" id="accordion">
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion('acordeao-principal')">
@@ -120,51 +127,11 @@
                                 Missão
                             </div>
                             <div class="accordion-content" id="missao">
-                                <p><strong>Objetivo Central:</strong> Facilitar a vida digital de indivíduos e empresas, proporcionando clareza e simplicidade em um mundo complexo.</p>
-                                <p><strong>Mensagem:</strong> "Transformamos a experiência digital, tornando-a acessível e descomplicada."</p>
+                                <p><strong>Objetivo Central:</strong> Facilitar a vida digital de indivíduos e empresas.</p>
+                                <p><strong>Mensagem:</strong> "Transformamos a experiência digital."</p>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion('arquetipo')">
-                                Arquétipo
-                            </div>
-                            <div class="accordion-content" id="arquetipo">
-                                <p><strong>O Sábio:</strong> Compartilhar conhecimento e insights que capacitam os usuários a tomarem decisões informadas.</p>
-                                <p><strong>Mensagem:</strong> "Oferecemos sabedoria prática para navegar no universo digital com confiança."</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion('sombra')">
-                                Sombra
-                            </div>
-                            <div class="accordion-content" id="sombra">
-                                <p><strong>O Bobo da Corte:</strong> Incorporar humor e leveza na abordagem de temas digitais, desmistificando o caos.</p>
-                                <p><strong>Mensagem:</strong> "Usamos o humor para tornar o aprendizado digital mais leve e divertido."</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion('paradoxos')">
-                                Paradoxos
-                            </div>
-                            <div class="accordion-content" id="paradoxos">
-                                <p><strong>Exploração das Contradições:</strong> Encorajar a reflexão sobre a complexidade do digital, mostrando que menos pode ser mais.</p>
-                                <p><strong>Mensagem:</strong> "Desafiamos normas e promovemos novas formas de pensar sobre a tecnologia."</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion('mae')">
-                                MAE (Módulo de Aceleração de Aprendizagem e Ensino)
-                            </div>
-                            <div class="accordion-content" id="mae">
-                                <p><strong>Elementos:</strong></p>
-                                <ul>
-                                    <li><strong>Desafio:</strong> Identificação de obstáculos que os participantes enfrentam no aprendizado digital.</li>
-                                    <li><strong>Segmento:</strong> Divisão do conhecimento em partes menores e mais gerenciáveis.</li>
-                                    <li><strong>Codificação de Conhecimento:</strong> Transformação de informações complexas em formatos acessíveis.</li>
-                                    <li><strong>Decodificação em Menu de Acesso Imediato:</strong> Sistema de navegação intuitivo para acesso rápido ao conhecimento.</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <!-- Outros itens do acordeão -->
                     </div>
                 </div>
             </div>
@@ -178,7 +145,7 @@
             isResizing = true;
             document.addEventListener('mousemove', resize);
             document.addEventListener('mouseup', stopResize);
-            event.preventDefault(); // Impede a seleção de texto durante o redimensionamento
+            event.preventDefault();
         }
 
         function resize(event) {
@@ -190,8 +157,8 @@
                 const newWidth = event.clientX - columns.offsetLeft;
                 const totalWidth = columns.offsetWidth;
                 
-                const centerWidth = Math.max(newWidth - 15, 1600); // Largura mínima de 300px para a coluna central
-                const rightWidth = totalWidth - centerWidth - 5; // Ajusta a largura da coluna direita
+                const centerWidth = Math.max(newWidth - 15, 300); // Largura mínima de 300px
+                const rightWidth = totalWidth - centerWidth - 5;
 
                 centerColumn.style.flex = `0 0 ${centerWidth}px`;
                 rightColumn.style.flex = `0 0 ${rightWidth}px`;
